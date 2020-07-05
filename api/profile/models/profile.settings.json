@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "profiles",
+  "info": {
+    "name": "profile"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "interests_en": {
+      "type": "text"
+    },
+    "interests_pt": {
+      "type": "text"
+    },
+    "technologies": {
+      "collection": "technology"
+    },
+    "presentationVideoUrl": {
+      "type": "text"
+    }
+  }
+}

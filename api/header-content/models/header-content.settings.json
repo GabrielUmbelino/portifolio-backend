@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "header-content",
+  "info": {
+    "name": "Header Content"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "title_pt": {
+      "type": "string"
+    },
+    "description_pt": {
+      "type": "richtext"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "bannerImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "headerActionText": {
+      "type": "string"
+    },
+    "headerActionLink": {
+      "type": "string"
+    }
+  }
+}

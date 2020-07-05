@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "section",
+  "info": {
+    "name": "Section"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description_en": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "description_pt": {
+      "type": "string"
+    }
+  }
+}

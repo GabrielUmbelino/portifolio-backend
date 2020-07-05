@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project",
+  "info": {
+    "name": "Project"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "link": {
+      "type": "string"
+    },
+    "categories": {
+      "collection": "category"
+    },
+    "technologies": {
+      "collection": "technology"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff",
+      "maxLength": 7,
+      "minLength": 7
+    },
+    "details_en": {
+      "type": "richtext"
+    },
+    "name_en": {
+      "type": "string"
+    },
+    "details_pt": {
+      "type": "richtext"
+    },
+    "name_pt": {
+      "type": "string"
+    }
+  }
+}

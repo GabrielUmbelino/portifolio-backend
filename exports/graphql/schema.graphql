@@ -1,0 +1,1199 @@
+type Category {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  description_en: String
+  description_pt: String
+}
+
+type CategoryAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type CategoryConnection {
+  values: [Category]
+  groupBy: CategoryGroupBy
+  aggregate: CategoryAggregator
+}
+
+type CategoryConnectionCreated_at {
+  key: DateTime
+  connection: CategoryConnection
+}
+
+type CategoryConnectionDescription_en {
+  key: String
+  connection: CategoryConnection
+}
+
+type CategoryConnectionDescription_pt {
+  key: String
+  connection: CategoryConnection
+}
+
+type CategoryConnectionId {
+  key: ID
+  connection: CategoryConnection
+}
+
+type CategoryConnectionUpdated_at {
+  key: DateTime
+  connection: CategoryConnection
+}
+
+type CategoryGroupBy {
+  id: [CategoryConnectionId]
+  created_at: [CategoryConnectionCreated_at]
+  updated_at: [CategoryConnectionUpdated_at]
+  description_en: [CategoryConnectionDescription_en]
+  description_pt: [CategoryConnectionDescription_pt]
+}
+
+input CategoryInput {
+  description_en: String
+  description_pt: String
+}
+
+input createCategoryInput {
+  data: CategoryInput
+}
+
+type createCategoryPayload {
+  category: Category
+}
+
+input createExperiencyInput {
+  data: ExperiencyInput
+}
+
+type createExperiencyPayload {
+  experiency: Experiency
+}
+
+input createPageInput {
+  data: PageInput
+}
+
+type createPagePayload {
+  page: Page
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input createTechnologyInput {
+  data: TechnologyInput
+}
+
+type createTechnologyPayload {
+  technology: Technology
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input createWorkInput {
+  data: WorkInput
+}
+
+type createWorkPayload {
+  work: Work
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format
+outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for
+representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+`date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input deleteCategoryInput {
+  where: InputID
+}
+
+type deleteCategoryPayload {
+  category: Category
+}
+
+input deleteExperiencyInput {
+  where: InputID
+}
+
+type deleteExperiencyPayload {
+  experiency: Experiency
+}
+
+type deleteHeaderContentPayload {
+  headerContent: HeaderContent
+}
+
+input deletePageInput {
+  where: InputID
+}
+
+type deletePagePayload {
+  page: Page
+}
+
+type deleteProfilePayload {
+  profile: Profile
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteTechnologyInput {
+  where: InputID
+}
+
+type deleteTechnologyPayload {
+  technology: Technology
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteWorkInput {
+  where: InputID
+}
+
+type deleteWorkPayload {
+  work: Work
+}
+
+input editCategoryInput {
+  description_en: String
+  description_pt: String
+}
+
+input editExperiencyInput {
+  description_en: String
+  description_pt: String
+  start_date: Date
+  end_date: Date
+  company: String
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+}
+
+input editHeaderContentInput {
+  logo: ID
+  title_en: String
+  description_en: String
+  title_pt: String
+  description_pt: String
+  backgroundColor: String
+  bannerImage: ID
+  headerActionText: String
+  headerActionLink: String
+}
+
+input editPageInput {
+  description_en: String
+  order: Int
+  description_pt: String
+}
+
+input editProfileInput {
+  interests_en: String
+  interests_pt: String
+  technologies: [ID]
+  presentationVideoUrl: String
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+input editTechnologyInput {
+  svgIcon: String
+  name: String
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input editWorkInput {
+  image: ID
+  link: String
+  categories: [ID]
+  technologies: [ID]
+  backgroundColor: String
+  details_en: String
+  name_en: String
+  details_pt: String
+  name_pt: String
+}
+
+type Experiency {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  description_en: String
+  description_pt: String
+  start_date: Date
+  end_date: Date
+  company: String
+}
+
+type ExperiencyAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ExperiencyConnection {
+  values: [Experiency]
+  groupBy: ExperiencyGroupBy
+  aggregate: ExperiencyAggregator
+}
+
+type ExperiencyConnectionCompany {
+  key: String
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionCreated_at {
+  key: DateTime
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionDescription_en {
+  key: String
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionDescription_pt {
+  key: String
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionEnd_date {
+  key: ID
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionId {
+  key: ID
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionStart_date {
+  key: ID
+  connection: ExperiencyConnection
+}
+
+type ExperiencyConnectionUpdated_at {
+  key: DateTime
+  connection: ExperiencyConnection
+}
+
+type ExperiencyGroupBy {
+  id: [ExperiencyConnectionId]
+  created_at: [ExperiencyConnectionCreated_at]
+  updated_at: [ExperiencyConnectionUpdated_at]
+  description_en: [ExperiencyConnectionDescription_en]
+  description_pt: [ExperiencyConnectionDescription_pt]
+  start_date: [ExperiencyConnectionStart_date]
+  end_date: [ExperiencyConnectionEnd_date]
+  company: [ExperiencyConnectionCompany]
+}
+
+input ExperiencyInput {
+  description_en: String
+  description_pt: String
+  start_date: Date
+  end_date: Date
+  company: String
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+}
+
+type ForgotPassword {
+  ok: Boolean
+}
+
+type HeaderContent {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  logo: UploadFile
+  title_en: String
+  description_en: String
+  title_pt: String
+  description_pt: String
+  backgroundColor: String
+  bannerImage: UploadFile
+  headerActionText: String
+  headerActionLink: String
+}
+
+input HeaderContentInput {
+  logo: ID
+  title_en: String
+  description_en: String
+  title_pt: String
+  description_pt: String
+  backgroundColor: String
+  bannerImage: ID
+  headerActionText: String
+  headerActionLink: String
+}
+
+input InputID {
+  id: ID!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | ForgotPassword | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnectionCreated_at | CategoryConnectionUpdated_at | CategoryConnectionDescription_en | CategoryConnectionDescription_pt | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | Experiency | ExperiencyConnection | ExperiencyAggregator | ExperiencyGroupBy | ExperiencyConnectionId | ExperiencyConnectionCreated_at | ExperiencyConnectionUpdated_at | ExperiencyConnectionDescription_en | ExperiencyConnectionDescription_pt | ExperiencyConnectionStart_date | ExperiencyConnectionEnd_date | ExperiencyConnectionCompany | createExperiencyPayload | updateExperiencyPayload | deleteExperiencyPayload | HeaderContent | updateHeaderContentPayload | deleteHeaderContentPayload | Page | PageConnection | PageAggregator | PageAggregatorSum | PageAggregatorAvg | PageAggregatorMin | PageAggregatorMax | PageGroupBy | PageConnectionId | PageConnectionCreated_at | PageConnectionUpdated_at | PageConnectionDescription_en | PageConnectionOrder | PageConnectionDescription_pt | createPagePayload | updatePagePayload | deletePagePayload | Profile | updateProfilePayload | deleteProfilePayload | Technology | TechnologyConnection | TechnologyAggregator | TechnologyGroupBy | TechnologyConnectionId | TechnologyConnectionCreated_at | TechnologyConnectionUpdated_at | TechnologyConnectionSvgIcon | TechnologyConnectionName | createTechnologyPayload | updateTechnologyPayload | deleteTechnologyPayload | Work | WorkConnection | WorkAggregator | WorkGroupBy | WorkConnectionId | WorkConnectionCreated_at | WorkConnectionUpdated_at | WorkConnectionImage | WorkConnectionLink | WorkConnectionBackgroundColor | WorkConnectionDetails_en | WorkConnectionName_en | WorkConnectionDetails_pt | WorkConnectionName_pt | createWorkPayload | updateWorkPayload | deleteWorkPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+
+type Mutation {
+  createCategory(input: createCategoryInput): createCategoryPayload
+  updateCategory(input: updateCategoryInput): updateCategoryPayload
+  deleteCategory(input: deleteCategoryInput): deleteCategoryPayload
+  createExperiency(input: createExperiencyInput): createExperiencyPayload
+  updateExperiency(input: updateExperiencyInput): updateExperiencyPayload
+  deleteExperiency(input: deleteExperiencyInput): deleteExperiencyPayload
+  updateHeaderContent(input: updateHeaderContentInput): updateHeaderContentPayload
+  deleteHeaderContent: deleteHeaderContentPayload
+  createPage(input: createPageInput): createPagePayload
+  updatePage(input: updatePageInput): updatePagePayload
+  deletePage(input: deletePageInput): deletePagePayload
+  updateProfile(input: updateProfileInput): updateProfilePayload
+  deleteProfile: deleteProfilePayload
+  createTechnology(input: createTechnologyInput): createTechnologyPayload
+  updateTechnology(input: updateTechnologyInput): updateTechnologyPayload
+  deleteTechnology(input: deleteTechnologyInput): deleteTechnologyPayload
+  createWork(input: createWorkInput): createWorkPayload
+  updateWork(input: updateWorkInput): updateWorkPayload
+  deleteWork(input: deleteWorkInput): deleteWorkPayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UserInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): ForgotPassword
+  changePassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+type Page {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  description_en: String
+  order: Int
+  description_pt: String
+}
+
+type PageAggregator {
+  count: Int
+  totalCount: Int
+  sum: PageAggregatorSum
+  avg: PageAggregatorAvg
+  min: PageAggregatorMin
+  max: PageAggregatorMax
+}
+
+type PageAggregatorAvg {
+  order: Float
+}
+
+type PageAggregatorMax {
+  order: Float
+}
+
+type PageAggregatorMin {
+  order: Float
+}
+
+type PageAggregatorSum {
+  order: Float
+}
+
+type PageConnection {
+  values: [Page]
+  groupBy: PageGroupBy
+  aggregate: PageAggregator
+}
+
+type PageConnectionCreated_at {
+  key: DateTime
+  connection: PageConnection
+}
+
+type PageConnectionDescription_en {
+  key: String
+  connection: PageConnection
+}
+
+type PageConnectionDescription_pt {
+  key: String
+  connection: PageConnection
+}
+
+type PageConnectionId {
+  key: ID
+  connection: PageConnection
+}
+
+type PageConnectionOrder {
+  key: Int
+  connection: PageConnection
+}
+
+type PageConnectionUpdated_at {
+  key: DateTime
+  connection: PageConnection
+}
+
+type PageGroupBy {
+  id: [PageConnectionId]
+  created_at: [PageConnectionCreated_at]
+  updated_at: [PageConnectionUpdated_at]
+  description_en: [PageConnectionDescription_en]
+  order: [PageConnectionOrder]
+  description_pt: [PageConnectionDescription_pt]
+}
+
+input PageInput {
+  description_en: String
+  order: Int
+  description_pt: String
+}
+
+type Profile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  interests_en: String
+  interests_pt: String
+  presentationVideoUrl: String
+  technologies(sort: String, limit: Int, start: Int, where: JSON): [Technology]
+}
+
+input ProfileInput {
+  interests_en: String
+  interests_pt: String
+  technologies: [ID]
+  presentationVideoUrl: String
+}
+
+type Query {
+  category(id: ID!): Category
+  categories(sort: String, limit: Int, start: Int, where: JSON): [Category]
+  categoriesConnection(sort: String, limit: Int, start: Int, where: JSON): CategoryConnection
+  experiency(id: ID!): Experiency
+  experiencies(sort: String, limit: Int, start: Int, where: JSON): [Experiency]
+  experienciesConnection(sort: String, limit: Int, start: Int, where: JSON): ExperiencyConnection
+  headerContent: HeaderContent
+  page(id: ID!): Page
+  pages(sort: String, limit: Int, start: Int, where: JSON): [Page]
+  pagesConnection(sort: String, limit: Int, start: Int, where: JSON): PageConnection
+  profile: Profile
+  technology(id: ID!): Technology
+  technologies(sort: String, limit: Int, start: Int, where: JSON): [Technology]
+  technologiesConnection(sort: String, limit: Int, start: Int, where: JSON): TechnologyConnection
+  work(id: ID!): Work
+  works(sort: String, limit: Int, start: Int, where: JSON): [Work]
+  worksConnection(sort: String, limit: Int, start: Int, where: JSON): WorkConnection
+  files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+}
+
+type Technology {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  svgIcon: String
+  name: String
+}
+
+type TechnologyAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TechnologyConnection {
+  values: [Technology]
+  groupBy: TechnologyGroupBy
+  aggregate: TechnologyAggregator
+}
+
+type TechnologyConnectionCreated_at {
+  key: DateTime
+  connection: TechnologyConnection
+}
+
+type TechnologyConnectionId {
+  key: ID
+  connection: TechnologyConnection
+}
+
+type TechnologyConnectionName {
+  key: String
+  connection: TechnologyConnection
+}
+
+type TechnologyConnectionSvgIcon {
+  key: String
+  connection: TechnologyConnection
+}
+
+type TechnologyConnectionUpdated_at {
+  key: DateTime
+  connection: TechnologyConnection
+}
+
+type TechnologyGroupBy {
+  id: [TechnologyConnectionId]
+  created_at: [TechnologyConnectionCreated_at]
+  updated_at: [TechnologyConnectionUpdated_at]
+  svgIcon: [TechnologyConnectionSvgIcon]
+  name: [TechnologyConnectionName]
+}
+
+input TechnologyInput {
+  svgIcon: String
+  name: String
+}
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+input updateCategoryInput {
+  where: InputID
+  data: editCategoryInput
+}
+
+type updateCategoryPayload {
+  category: Category
+}
+
+input updateExperiencyInput {
+  where: InputID
+  data: editExperiencyInput
+}
+
+type updateExperiencyPayload {
+  experiency: Experiency
+}
+
+input updateHeaderContentInput {
+  data: editHeaderContentInput
+}
+
+type updateHeaderContentPayload {
+  headerContent: HeaderContent
+}
+
+input updatePageInput {
+  where: InputID
+  data: editPageInput
+}
+
+type updatePagePayload {
+  page: Page
+}
+
+input updateProfileInput {
+  data: editProfileInput
+}
+
+type updateProfilePayload {
+  profile: Profile
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateTechnologyInput {
+  where: InputID
+  data: editTechnologyInput
+}
+
+type updateTechnologyPayload {
+  technology: Technology
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateWorkInput {
+  where: InputID
+  data: editWorkInput
+}
+
+type updateWorkPayload {
+  work: Work
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type UploadFile {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdated_at {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  created_at: [UploadFileConnectionCreated_at]
+  updated_at: [UploadFileConnectionUpdated_at]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String!
+  user: UsersPermissionsMe!
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdated_at {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  created_at: [UsersPermissionsUserConnectionCreated_at]
+  updated_at: [UsersPermissionsUserConnectionUpdated_at]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+}
+
+type Work {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  image: UploadFile
+  link: String
+  backgroundColor: String
+  details_en: String
+  name_en: String
+  details_pt: String
+  name_pt: String
+  categories(sort: String, limit: Int, start: Int, where: JSON): [Category]
+  technologies(sort: String, limit: Int, start: Int, where: JSON): [Technology]
+}
+
+type WorkAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type WorkConnection {
+  values: [Work]
+  groupBy: WorkGroupBy
+  aggregate: WorkAggregator
+}
+
+type WorkConnectionBackgroundColor {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionCreated_at {
+  key: DateTime
+  connection: WorkConnection
+}
+
+type WorkConnectionDetails_en {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionDetails_pt {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionId {
+  key: ID
+  connection: WorkConnection
+}
+
+type WorkConnectionImage {
+  key: ID
+  connection: WorkConnection
+}
+
+type WorkConnectionLink {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionName_en {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionName_pt {
+  key: String
+  connection: WorkConnection
+}
+
+type WorkConnectionUpdated_at {
+  key: DateTime
+  connection: WorkConnection
+}
+
+type WorkGroupBy {
+  id: [WorkConnectionId]
+  created_at: [WorkConnectionCreated_at]
+  updated_at: [WorkConnectionUpdated_at]
+  image: [WorkConnectionImage]
+  link: [WorkConnectionLink]
+  backgroundColor: [WorkConnectionBackgroundColor]
+  details_en: [WorkConnectionDetails_en]
+  name_en: [WorkConnectionName_en]
+  details_pt: [WorkConnectionDetails_pt]
+  name_pt: [WorkConnectionName_pt]
+}
+
+input WorkInput {
+  image: ID
+  link: String
+  categories: [ID]
+  technologies: [ID]
+  backgroundColor: String
+  details_en: String
+  name_en: String
+  details_pt: String
+  name_pt: String
+}

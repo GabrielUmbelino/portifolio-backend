@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiency",
+  "info": {
+    "name": "Experiency"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description_en": {
+      "type": "richtext"
+    },
+    "description_pt": {
+      "type": "richtext"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "company": {
+      "type": "string"
+    }
+  }
+}

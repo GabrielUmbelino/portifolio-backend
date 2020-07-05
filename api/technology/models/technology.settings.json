@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "technology",
+  "info": {
+    "name": "Technology"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "svgIcon": {
+      "type": "richtext"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
